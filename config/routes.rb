@@ -8,6 +8,8 @@ Mckinsey::Application.routes.draw do
   # root 'welcome#index'
 
   #regular route:
+  get 'meeting/participant_details' => 'meetings#participant_details'
+  get 'meeting/user_input' => 'meetings#user_input'
   get 'to/:uid' => 'meetings#participate'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

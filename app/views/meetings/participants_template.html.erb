@@ -6,9 +6,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+	<h1> Meeting Manager</h1>
+  <div ng-view></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.min.js"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

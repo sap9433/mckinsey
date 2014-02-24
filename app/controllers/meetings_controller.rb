@@ -63,7 +63,19 @@ class MeetingsController < ApplicationController
 
   def participate
     respond_to do |format|
-      format.html { render action: 'participate', :layout => 'meeting_layout' }
+      format.html { render action: 'participants_template', :layout => false }
+    end
+  end
+
+  def participant_details
+    respond_to do |format|
+      format.html { render action: 'participant_details', :layout => false }
+    end
+  end
+
+  def user_input
+    respond_to do |format|
+      format.html { render action: 'user_input', :layout => false }
     end
   end
 
