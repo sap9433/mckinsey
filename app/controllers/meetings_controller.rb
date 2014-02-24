@@ -61,6 +61,12 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def participate
+    respond_to do |format|
+      format.html { render action: 'participate', :layout => 'meeting_layout' }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting
