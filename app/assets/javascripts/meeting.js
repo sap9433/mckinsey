@@ -1,4 +1,4 @@
-angular.module('meetingApp', ['ngRoute'])
+angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
 
 .config(function($routeProvider) {
   $routeProvider
