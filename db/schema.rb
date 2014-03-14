@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140223113925) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "meetings", force: true do |t|
     t.string   "uid"
     t.string   "name"
