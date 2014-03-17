@@ -11,4 +11,9 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require angular/01-angular.min
+//= require angular/03-angular-route.min
+//= require angular/02-angular-animate.min
+//= require meeting
+//= require turbolinks
 //= require_tree .
