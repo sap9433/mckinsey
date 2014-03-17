@@ -1,6 +1,6 @@
 angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
 
-.config(function($routeProvider) {
+.config(['$routeProvider',function($routeProvider) {
   $routeProvider
     .when('/', {
       controller:'participantController',
@@ -12,17 +12,17 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
     .otherwise({
       redirectTo:'/'
     });
-})
+}])
 
-.controller('participantController',function($scope) {
+.controller('participantController',['$scope', function($scope) {
   $scope.participants = [
     {name:'Saptarshi chatterjee'},
     {name:'Robert De Niro'},
     {name:'Christian Bale'},
     {name:'mark zuckerberg'}];
-})
+}])
 
-.controller('userinputController',function($scope, $http) {
+.controller('userinputController',['$scope', '$http', function($scope, $http) {
 (function() {
 
   var streaming = false,
@@ -106,4 +106,4 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
   }, false);
 
 })();
-})
+}])
