@@ -4,7 +4,7 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
   $routeProvider
     .when('/', {
       controller:'participantController',
-      templateUrl:'/meeting/participant_details'
+      templateUrl:'/meeting/choose_action'
     })
     .when('/participate', {
       templateUrl:'/meeting/user_input'
@@ -20,12 +20,6 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
 ])
 
 .controller('participantController',['$scope', '$http', function($scope, $http) {
-  $scope.participants = [
-    {name:'Saptarshi chatterjee'},
-    {name:'Robert De Niro'},
-    {name:'Christian Bale'},
-    {name:'mark zuckerberg'}];
-
   $scope.uploadToCloud = function() {
    filepicker.setKey('A2kM2lyAMQqK2DgFwwJvAz');
    filepicker.pick({

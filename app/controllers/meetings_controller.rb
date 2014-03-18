@@ -83,6 +83,9 @@ class MeetingsController < ApplicationController
      @meeting.userimages.create(url: params[:url], userdetails: params[:agent], additional: params[:filename])
      render :nothing => true
   end
+  
+  def choose_action
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

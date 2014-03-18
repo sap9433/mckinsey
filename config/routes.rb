@@ -5,11 +5,12 @@ Mckinsey::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'meetings#new'
+  root 'meetings#participate'
 
   #regular route:
   get 'meeting/participant_details' => 'meetings#participant_details'
   get 'meeting/user_input' => 'meetings#user_input'
+  get 'meeting/choose_action' => 'meetings#choose_action'
   get 'to/:uid' => 'meetings#participate'
   post 'meeting/storeupload' => 'meetings#storeupload'
 
