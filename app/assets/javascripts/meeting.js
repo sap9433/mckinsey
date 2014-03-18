@@ -8,6 +8,8 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
     })
     .when('/participate', {
       templateUrl:'/meeting/user_input'
+    }).when('/newEvent', {
+      templateUrl:'meetings#new'
     })
     .otherwise({
       redirectTo:'/'
