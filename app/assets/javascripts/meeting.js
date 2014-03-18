@@ -14,7 +14,12 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
     });
 }])
 
-.controller('participantController',['$scope', function($scope) {
+.config(["$httpProvider", function($httpProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = document.getElementsByName('csrf-token')[0].content;
+  }
+])
+
+.controller('participantController',['$scope', '$http', function($scope, $http) {
   $scope.participants = [
     {name:'Saptarshi chatterjee'},
     {name:'Robert De Niro'},
@@ -24,15 +29,22 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
   $scope.uploadToCloud = function() {
    filepicker.setKey('A2kM2lyAMQqK2DgFwwJvAz');
    filepicker.pick({
-      mimetypes: ['image/*', 'text/plain'],
-      container: 'window',
-      services:['COMPUTER', 'FACEBOOK', 'GMAIL'],
+      mimetypes: ['image/*'],
+      container: 'modal',
+      services:['COMPUTER'],
     },
-    function(InkBlob){
-      console.log(JSON.stringify(InkBlob));
+    function(data){
+      $http.post('/meeting/storeupload', {
+        'id' : 1,
+        'url': data.url,
+        'filename' : data.filename,
+        'agent' : navigator.userAgent
+      }).success(function(){
+
+      });
     },
     function(FPError){
-      console.log(FPError.toString());
+      alert('error occured in saving image to cloud');
     }
    );
   }

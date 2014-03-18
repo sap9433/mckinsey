@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, only: [:show, :edit, :update, :destroy, :storeupload]
 
   # GET /meetings
   # GET /meetings.json
@@ -77,6 +77,11 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       format.html { render action: 'user_input', :layout => false }
     end
+  end
+
+  def storeupload
+     @meeting.userimages.create(url: params[:url], userdetails: params[:agent], additional: params[:filename])
+     render :nothing => true
   end
 
   private

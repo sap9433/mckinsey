@@ -11,6 +11,7 @@ Mckinsey::Application.routes.draw do
   get 'meeting/participant_details' => 'meetings#participant_details'
   get 'meeting/user_input' => 'meetings#user_input'
   get 'to/:uid' => 'meetings#participate'
+  post 'meeting/storeupload' => 'meetings#storeupload'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
