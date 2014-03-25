@@ -6,8 +6,8 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
       controller:'participantController',
       templateUrl:'/meeting/choose_action'
     })
-    .when('/participate', {
-      templateUrl:'/meeting/user_input'
+    .when('/participate/:id', {
+      templateUrl:'/meeting/user_input/1'
     })
     .when('/participant_details', {
       templateUrl:'/meeting/participant_details'
@@ -26,6 +26,7 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
 ])
 
 .controller('participantController',['$scope', '$http', '$location', function($scope, $http, $location) {
+  $scope.uploadedBills = [];
   $scope.uploadToCloud = function() {
    filepicker.setKey('A2kM2lyAMQqK2DgFwwJvAz');
    filepicker.pick({
@@ -40,7 +41,11 @@ angular.module('meetingApp', ['ngRoute', 'ngAnimate'])
         'filename' : data.filename,
         'agent' : navigator.userAgent
       }).success(function(){
-        $location.url('/participant_details');
+        $scope.uploadedBills.push({
+          'url': data.url,
+          'filename' : data.filename,
+          'date' : new Date()
+        });
       });
     },
     function(FPError){

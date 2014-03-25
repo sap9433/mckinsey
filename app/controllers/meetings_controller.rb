@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy, :storeupload]
+  before_action :set_meeting, only: [:show, :edit, :update, :destroy, :storeupload, :participate, :user_input]
 
   # GET /meetings
   # GET /meetings.json
@@ -74,6 +74,7 @@ class MeetingsController < ApplicationController
   end
 
   def user_input
+    @uploadedBills = @meeting.userimages.all
     respond_to do |format|
       format.html { render action: 'user_input', :layout => false }
     end
@@ -90,7 +91,8 @@ class MeetingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting
-      @meeting = Meeting.find(params[:id])
+      meeting_id = params[:id] || 1
+      @meeting = Meeting.find(meeting_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

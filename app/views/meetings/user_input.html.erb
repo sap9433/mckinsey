@@ -1,3 +1,17 @@
 <div class='centerAlignContainter' ng-controller="participantController">
-	<button type="button" id="userUpload" class="btn btn-success centerButton" ng-click="uploadToCloud()">Upload Image</button>
+	<button type="button" id="userUpload" class="btn btn-success" ng-click="uploadToCloud()">Upload Image</button>
+	<div id="bills">
+		<ul class="example-animate-container">
+    		<% @uploadedBills.each_with_index do |bill, index| %>
+    		<div class="row">
+    			<div class="col-md-1"><%= index %></div>
+		        <div class="col-md-4"><a href="<%= bill.url %>"> <%= truncate(bill.userdetails, :length => 10) %> </a> </div>
+		        <div class="col-md-4"><%= bill.userdetails %> </div>
+		        <div class="col-md-3"><%= bill.additional %> </div>
+		    </div>
+    		</li>			
+    		<% end %>
+  		</ul>
+
+	</div>
 </div>

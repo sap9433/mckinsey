@@ -1,6 +1,11 @@
 <div ng-controller="participantController">
 <div class='centerAlignContainter'>
- <a href="#/newEvent" class="btn btn-primary centerButton"> Create Event </a>
- <a href="#/participate" class="btn btn-success centerButton"> Contribute to Event </a>
+<% if current_user %>
+ <div id="fb-root"></div>
+ <fblogin></fblogin>
+<% else %>
+ <a href="#/newEvent" class="btn btn-primary centerButton"> Create New Report </a>
+ <a href="#/participate/1" class="btn btn-success centerButton"> Edit Existing Report</a>
+<% end %>
 </div>
 </div>
